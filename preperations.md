@@ -16,6 +16,26 @@ node -v
 npm -v
 ```
 
+* **Qdrant Vector store** – Install docker image qdrant/qdrant.
+  This is required for building a RAG Server in n8n.
+
+```bash
+  docker pull qdrant/qdrant
+```
+  In the following command, revise $(pwd)/path/to/data for your Docker configuration. Then use the updated command to run the container:
+```bash
+docker run -p 6333:6333 \
+    -e QDRANT__SERVICE__API_KEY=postkodlotteriet \
+    -v $(pwd)/path/to/data:/qdrant/storage \
+    qdrant/qdrant
+```
+If you are using Docker.desktop, remember to set ports (TCP, UDP) explicitly to 6333 and add env variable QDRANT__SERVICE__API_KEY=postkodlotteriet.
+
+You can open qdrant dashboard via:
+```bash
+http://localhost:6333/dashboard
+```
+
 ---
 
 ## Install n8n
@@ -36,6 +56,22 @@ n8n start
 > This may take 2–3 minutes the first time, and you might not see much feedback — perfect moment to grab a coffee ☕  
 
 Once it’s running, n8n is ready to build workflows.
+
+---
+
+## Google ADK
+Google ADK is the main framework for building agents and MCP servers with Java. 
+The lab with Google ADK is meant for teams who would like to climb out of n8n and get a closer look at a lower level framework.
+
+Prereq: 
+* **Java 17 or later**
+* **Maven 3.9 or later**
+
+Set env variable: GOOGLE_API_KEY="YOUR_API_KEY" (see below)
+
+For those who would like to try out to run a simple agent beforehand, instructions can be found here:
+
+https://google.github.io/adk-docs/#java
 
 ---
 
