@@ -18,18 +18,29 @@ npm -v
 
 * **Qdrant Vector store** – Install docker image qdrant/qdrant.
   This is required for building a RAG Server in n8n.
+  
+***For Linux***
 
+First, download the latest Qdrant image from Dockerhub:
 ```bash
   docker pull qdrant/qdrant
 ```
-  In the following command, revise $(pwd)/path/to/data for your Docker configuration. Then use the updated command to run the container:
+  Then, run the service:
 ```bash
-docker run -p 6333:6333 \
-    -e QDRANT__SERVICE__API_KEY=postkodlotteriet \
-    -v $(pwd)/path/to/data:/qdrant/storage \
-    qdrant/qdrant
+docker run -p 6333:6333 -p 6334:6334 -v "$(pwd)/qdrant_storage:/qdrant/storage:z" qdrant/qdrant
 ```
-If you are using Docker.desktop, remember to set ports (TCP, UDP) explicitly to 6333 and add env variable QDRANT__SERVICE__API_KEY=postkodlotteriet.
+***For Windows***
+Please install docker desktop for windows: [https://docs.docker.com/desktop/setup/install/windows-install/](https://docs.docker.com/desktop/setup/install/windows-install/)  
+In order to access remote images, you need to sign in to Docker HUB. Once that is done, go to images, search for Qdrant - it should find qdrant/qdrant.
+Click the 'Run' buttom. This will pull the image and ask for 'optional settings' before running. 
+Explicitly set ports to 6333 and add env variable QDRANT__SERVICE__API_KEY=postkodlotteriet. Press 'Run'.
+
+***For MacOS***
+Please install docker desktop for MacOS: [https://docs.docker.com/desktop/setup/install/mac-install/](https://docs.docker.com/desktop/setup/install/mac-install/)  
+In order to access remote images, you need to sign in to Docker HUB. Once that is done, go to images, search for Qdrant - it should find qdrant/qdrant.
+Click the 'Run' buttom. This will pull the image and ask for 'optional settings' before running. 
+Explicitly set ports to 6333 and add env variable QDRANT__SERVICE__API_KEY=postkodlotteriet. Press 'Run'.
+
 
 You can open qdrant dashboard via:
 ```bash
