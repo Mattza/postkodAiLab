@@ -1,3 +1,5 @@
+# Start the local MCP-server
+
 Before you can connect your tools and workflows, you’ll need to start up your local MCP server. This is what will handle requests from your AI agent and connect it to external data sources like IMDB.
 
 In your terminal:
@@ -22,6 +24,11 @@ In your terminal:
 * Go to [http://localhost:5678/](http://localhost:5678/)
 * Click **Create Workflow**
 * Add a trigger node **“On Chat Messages”** — no additional configuration is needed at this stage
+* Click the plus next to **AI Agent Memory** and add a **“Simple Memory”** node  
+
+This gives your agent short-term memory to keep track of context between messages.
+
+
 
 
 # Create the AI Agent
