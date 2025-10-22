@@ -112,4 +112,117 @@ In one sentence, describe:
 
 ---
 
-## RAG
+## Use Google ADK to create your own personal knowledge assistant 
+
+### Goal
+By connecting to internet sources and internal tools design your personal assistant
+
+### Expected Tools
+ADK web (see preparations.md) for setup. External open APIs [List of open API's](https://apipheny.io/free-api/).
+
+### Instructions / Hints
+Note: All tools need to be added as input to the Agent constructor in the following format:
+
+<pre><code>
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='root_agent',
+    description='A helpful assistant for user questions.',
+    instruction='Answer user questions to the best of your knowledge',
+    tools=[tool1,tool2, ...]
+)
+</code></pre>
+
+Below are examples of tools you can use and modify in your agent. Note how important the descriptions are for each tool. The Agent LLM reads these in order to understand exactly what the tool is for and how it works. Important! The tools needs to be defined *before* the Agent constructor.
+
+---
+*Use this tool for calculating exchange rates!* 
+<pre><code>
+import requests
+def get_exchange_rate(
+    currency_from: str = "USD",
+    currency_to: str = "SEK",
+    currency_date: str = "latest", ) -> dict:
+        
+    """
+      Retrieves the exchange rate between two currencies for a specified date.
+      Uses the Frankfurter API (https://api.frankfurter.app/) to fetch exchange rate data.
+      Args:
+      currency_from: Base currency (3-letter currency code). The default is "USD" (US Dollar).
+      currency_to: Target currency (3-letter currency code). The default is "KRW" (Korean Won).
+      currency_date: Date to query the exchange rate for. Default is "latest" for the most recent rate.
+      For historical rates, specify in YYYY-MM-DD format.
+      Returns:
+      dict: A dictionary containing exchange rate information.
+      Example: {"amount": 1.0, "base": "USD", "date": "2023–11–24", "rates": {"EUR": 0.95534}}
+    """
+        
+    response = requests.get(
+        f"https://api.frankfurter.app/{currency_date}",
+        params={"from": currency_from, "to": currency_to},
+     )
+    return response.json()
+</code></pre>
+---
+
+
+---  
+*Get local time from your system!*  
+<pre><code>
+import datetime
+def get_current_time() -> dict:
+    """
+        Retrieves the local time.
+        Returns:
+        dict: A dictionary containing time informantion.
+        Example: {"status": "success", "time": "2009-01-06 15:08:24.789150"}
+    """
+    now = datetime.datetime.now()
+    return {"status": "success", "time": now}
+</code></pre>
+---    
+
+---  
+*Retrieve University data by country!*   
+<pre><code>
+import requests    
+def get_universities(country: str = "Sweden") -> dict:
+    """
+      Retrieves all universities for a specific country.
+      Uses http://universities.hipolabs.com/ to fetch university data per country.
+      Args:
+      country: The name of the country. The default is "Sweden"
+      Returns:
+      dict: A dictionary containing university information.
+      Example: {"name": "Blekinge Institute of Technology", "alpha_two_code": "SE", "country": "Sweden", "web_pages": ["http://www.bth.se/"], "state-province": null, "domains": ["bth.se"]}
+    """
+    response = requests.get("http://universities.hipolabs.com/search?country="+country)
+    return response.json()
+</code></pre>
+---
+
+---   
+*Write a report to disc!* 
+<pre><code>
+def write_report(report: str = "No data") -> dict:
+    """
+      Writes a report to disk in a file called 'report.html'.
+      Args: 
+      report: A text report with HTML tags. The default is "No data"
+    """    
+    with open("report.html", "w", encoding="utf-8") as f:
+        f.write(report)
+        f.close()
+</code></pre>
+---
+
+---
+*If you created MCP RAG Server in N8N, make it a part of your agents toolset!*
+<pre><code>
+from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
+from google.adk.tools.mcp_tool.mcp_session_manager import SseConnectionParams
+
+mcp_rag_tool = MCPToolset(connection_params=SseConnectionParams(url=URL_TO_MCP_SERVER_HERE))
+</code></pre>
+---
+
