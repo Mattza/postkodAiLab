@@ -167,9 +167,7 @@ Once it’s running, the server will be available for n8n to connect to. 🎉
 
 ---
 ## Google ADK
-Google ADK is a solid open source framework for building agents on a more finegrained level than n8n. If you want to go beyond n8n (not mandatory) this is a good place to start.
-The framework is available in both java- and python versions, but after testing the java version for a couple of hours I would strongly advice to use python instead. 
-Python is in all respects the official language for AI and machine learning and it is easier to use, less error prone, more updated and faster to run. To set up Google Python ADK on your machine, do the following:
+Google ADK is a solid open source framework for building agents on a more finegrained level than n8n. If you want to go beyond n8n this is a good place to start. The framework is available in both java- and python versions, but after testing the java version for a couple of hours I would strongly advice to use python instead. Python is in all respects the official language for AI and machine learning and it is easier to use, less error prone, more updated and faster to run. To set up Google Python ADK on your machine, do the following:
 
 * **Python runtime** – download and install from [https://www.python.org/downloads/](https://www.python.org/downloads/)  
   This is required to run Google Python ADK
@@ -216,9 +214,13 @@ Don't have API Key? Create one in AI Studio: https://aistudio.google.com/apikey
 Enter Google API key:********************
 
 ```bash
+# Run adk cli with your new agent - my_agent/agent.py
+adk run my_agent
+```
+
+```bash
 # Run adk web with your new agent - my_agent/agent.py
 adk web
-
 ```
 You now have an active agent running! 
 Open your browser: [http://localhost:8000](http://localhost:8000) 
