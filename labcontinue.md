@@ -10,7 +10,7 @@ Go to [Find apartments with bathtubs](#find-appartments-with-bathtubs)
 **Extend the local mcpServer:** this assignment invites you to customize your own MCP (Model Context Protocol) server and make it do something entirely new. You’ll modify or add endpoints that can process or expose data in interesting ways — for example, integrating Postkodlotteriets data or creating a simple API that the n8n agent can interact with.  
 Go to [Extend the local mcpServer](#extend-the-local-mcpserver)
 
-**Use Google ADK to create your own personal knowledge assistant:** this assignment will help you understand the Google ADK Framework. You will make your agent capable of fetching information from the internet and use local tools.  
+**Use Google ADK to create your own personal knowledge assistant:** this assignment will help you understand the Google ADK Framework. You will make your agent capable of fetching information from the internet and use local tools. *Difficulty: Easy*.  
 Go to [Use Google ADK to create your own personal knowledge assistant](#use-google-adk-to-create-your-own-personal-knowledge-assistant)
 
 **Explore existing nodes and community nodes:** this assignment will help you discover built-in and community-created integrations for n8n. You will browse, install, and test new nodes directly from your local instance.  
@@ -19,7 +19,7 @@ Go to [Explore existing nodes and community nodes](#explore-existing-nodes-and-c
 **Explore existing AI workflows:** this assignment teaches you how to browse, inspect, and understand existing workflows in the [n8n AI workflows category](https://n8n.io/workflows/categories/ai/).  
 Go to [Explore existing AI workflows](#explore-existing-ai-workflows)
 
-**Create your own RAG MCP Server in n8n:** this assignment will help you understand how vector stores and RAG works. You will up a RAG system including vectordb and ingestion pipeline and serve it as a MCP Tool through an MCP Server.
+**Create your own RAG MCP Server in n8n:** this assignment will help you understand how vector stores and RAG works. You will up a RAG system including vectordb and ingestion pipeline and serve it as a MCP Tool through an MCP Server.*Difficulty: Hard*.
 Go to [Create your own RAG MCP Server in n8n](#create-your-own-rag-mcp-server-in-n8n)
 
 
