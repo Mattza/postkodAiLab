@@ -115,7 +115,7 @@ In one sentence, describe:
 ## Use Google ADK to create your own personal knowledge assistant 
 
 ### Goal
-By connecting to internet sources and internal tools design your personal assistant
+Use Google ADK to design your own personal assistant connecting to internet sources and internal tools.
 
 ### Expected Tools
 ADK web (see preparations.md) for setup. External open APIs [List of open API's](https://apipheny.io/free-api/).
