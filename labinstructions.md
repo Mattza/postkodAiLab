@@ -29,10 +29,6 @@ With your workflow started, it’s time to add the AI brain — the “Agent” 
 
 * Click the plus (+) next to the chat trigger  
 * Add the **“AI Agent”** node — leave it with the default config for now  
-* Click the plus next to **AI Agent Memory** and add a **“Simple Memory”** node  
-
-This gives your agent short-term memory to keep track of context between messages.
-
 
 
 ## Add the Chat Model
@@ -98,6 +94,7 @@ We’ll create nodes that let the AI search, create, update, and delete Airtable
 # Test the Agent
 Now that everything is wired up, let’s test the AI agent to make sure it can interact with Airtable and MCP correctly.
 
-## Is Airtable Working?
 Open both Airtable and n8n side-by-side.  
-In the chat window, send this prompt:
+In the chat window, send this prompt: 
+
+`I want to always have 10 series in my airtable that is either "In queue" or "Watching". If i have less then 10 add one drama series at the time until i have 10 series in does statuses. I dont want you to add series i already have in the airtable`
