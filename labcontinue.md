@@ -16,6 +16,10 @@ Go to [Use Google ADK to create your own personal knowledge assistant](#use-goog
 **Explore existing nodes and community nodes:** this assignment will help you discover built-in and community-created integrations for n8n. You will browse, install, and test new nodes directly from your local instance.  
 Go to [Explore existing nodes and community nodes](#explore-existing-nodes-and-community-nodes)
 
+**Explore existing AI workflows:** this assignment teaches you how to browse, inspect, and understand existing workflows in the [n8n AI workflows category](https://n8n.io/workflows/categories/ai/).  
+Go to [Explore existing AI workflows](#explore-existing-ai-workflows)
+
+
 
 ---
 
@@ -226,3 +230,38 @@ mcp_rag_tool = MCPToolset(connection_params=SseConnectionParams(url=URL_TO_MCP_S
 </code></pre>
 ---
 
+
+## Explore existing AI workflows
+
+### Goal
+Learn how AI workflows are structured in n8n, understand how different nodes interact, and identify patterns you can reuse in your own automation projects.
+
+### Expected Tools
+- n8n web interface
+- Local n8n instance (optional)
+- JSON editor (optional)
+
+### Instructions / Hints
+1. **Browse AI workflows**  
+   - Go to [https://n8n.io/workflows/categories/ai/](https://n8n.io/workflows/categories/ai/) and select a workflow that interests you.
+
+2. **Inspect the workflow**  
+   - Open the workflow and examine the nodes.  
+   - Check how triggers, transformations, and AI nodes are connected.  
+   - Note which services, APIs, or AI models are used.
+
+3. **Test in your instance**  
+   - If you have a local n8n, try to recreate or import a similar workflow.  
+   - Run it step by step to understand the flow of data.
+
+4. **Analyze patterns**  
+   - Identify reusable building blocks like text processing, API calls, or AI model prompts.  
+   - Consider how these patterns could be combined to create your own automation.
+
+### Challenge
+Pick one workflow and write a short summary (3–5 sentences) describing:  
+- What the workflow does  
+- How the nodes interact  
+- One idea for how you could extend it for your own projects
+
+---
