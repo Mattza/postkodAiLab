@@ -10,6 +10,9 @@ Go to [Find apartments with bathtubs](#find-appartments-with-bathtubs)
 **Extend the local mcpServer:** this assignment invites you to customize your own MCP (Model Context Protocol) server and make it do something entirely new. You’ll modify or add endpoints that can process or expose data in interesting ways — for example, integrating Postkodlotteriets data or creating a simple API that the n8n agent can interact with.  
 Go to [Extend the local mcpServer](#extend-the-local-mcpserver)
 
+**Use Google ADK to create your own personal knowledge assistant:** this assignment will help you understand the Google ADK Framework. You will make your agent capable of fetching information from the internet and use local tools.  
+Go to [Use Google ADK to create your own personal knowledge assistant](#use-google-adk-to-create-your-own-personal-knowledge-assistant)
+
 **Explore existing nodes and community nodes:** this assignment will help you discover built-in and community-created integrations for n8n. You will browse, install, and test new nodes directly from your local instance.  
 Go to [Explore existing nodes and community nodes](#explore-existing-nodes-and-community-nodes)
 
