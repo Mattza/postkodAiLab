@@ -19,6 +19,9 @@ Go to [Explore existing nodes and community nodes](#explore-existing-nodes-and-c
 **Explore existing AI workflows:** this assignment teaches you how to browse, inspect, and understand existing workflows in the [n8n AI workflows category](https://n8n.io/workflows/categories/ai/).  
 Go to [Explore existing AI workflows](#explore-existing-ai-workflows)
 
+**Create your own RAG MCP Server in n8n:** this assignment will help you understand how vector stores and RAG works. You will up a RAG system including vectordb and ingestion pipeline and serve it as a MCP Tool through an MCP Server.
+Go to [Create your own RAG MCP Server in n8n](#create-your-own-rag-mcp-server-in-n8n)
+
 
 
 ---
@@ -265,3 +268,38 @@ Pick one workflow and write a short summary (3–5 sentences) describing:
 - One idea for how you could extend it for your own projects
 
 ---
+
+## Create your own RAG MCP Server in n8n 
+
+### Goal
+Set up a RAG system including vectordb and ingestion pipeline and serve it as a MCP Tool through an MCP Server.
+
+### Expected Tools
+n8n, Qdrant Vector Store, MCP Server Trigger, Default Data Loader, On form submission, Embeddings. 
+
+PDF of your choice, here's a research report on MCP:
+
+[Research MCP](https://www.researchgate.net/publication/395045803_Model_Context_Protocol_for_Agentic_AI_Enabling_Contextual_Interoperability_Across_Systems/).
+
+
+### Instructions / Hints
+**Ingestion pipeline**
+1. Make sure the container with Qdrant Vector Store is up and running in Docker desktop.
+2. In n8n start a new workflow and add a MCP Server Trigger.
+3. Add Qdrant Vector Store (Operation Mode: Retrieve documents for AI Agent as tool), use QdrantApi account for credentials, set API key to "postkodlotteriet", add a description for the tool (ex "Use this tool to retrieve information about....."). Finally set Qdrant collection to Expression -> "RAG_MCP" -> Fixed. This is the name of database "table "where our embedded data and vectors will reside.
+4. To the vector store, attach an embedding model: "Embeddings Google Gemini". For credentials use Google Gemini Api Account, add your API key. Select "models/text-embedding-004" as model.
+
+*The MCP Server is now done. But we need to build an ingestion pipeline in order to add data to it.*
+
+**Ingestion pipeline**
+1. To trigger the pipeline we need to be able to add a pdf. Search for form, click on'n8n Form', select Triggers : "On new n8n Form event".
+2. Add title and short description. Click "Form Element", set *Element Type* to "File", set *Accepted File Types* to ".pdf". Set the *Field Name* to "PDF File". Click the button "Required Field" to true.
+3. Now, select Qdrant Vector Store and action "Add documents to vector store", set QdrantApi account for credentials, use API-key "postkodlotteriet". Like before, set Qdrant collection to Expression -> "RAG_MCP" -> Fixed.
+4. For embedding model, drag directly to the already existing one.
+5. Connect a document loader "Default Data Loader" to the Vector Store. Here, change *Type of Data* from "JSON" to "Binary".
+
+*The ingestion pipeline is now done. Click Inactive -> Active to enable the workflow for external access*
+
+**To add data: Click the *Execute workflow*-button next to the "on Form submission". Select the pdf you want to ingest. Click submit.** 
+
+For an external agent to reach the MCP RAG Server, double click on the "MCP Server Trigger" and copy the url from either "Test" or "Production".
