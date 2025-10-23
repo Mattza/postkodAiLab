@@ -59,7 +59,7 @@ The MCP Server will provide external data (like IMDB series information) to your
 * Click the plus by **Tool**
 * Add an **MCP Client Tool**
 * Use the following configuration:
-  * **Endpoint:** http://127.0.0.1/mcp
+  * **Endpoint:** http://127.0.0.1:3000/mcp
   * **Server Transport:** HTTP Streamable
   * **Authentication:** Header Auth
   * **Credential for Header Auth:** Create new
@@ -91,10 +91,10 @@ We’ll create nodes that let the AI search, create, update, and delete Airtable
 
 | Tool Name | Resource | Operation | Base | Table Name | Unique for this step |  
 |---|---|---|---|---|---|
-| Search Time Report | Record | Search | TVSeries | TVSeries | Filter By Formula: Click the AIIcon (The sparkles) |
-| Delete Time Report | Record | Delete | TVSeries | TVSeries | Record ID:  Click the AIIcon (The sparkles) |
-| Create Time Report | Record | Create | TVSeries | TVSeries | Mapping Column Mode: Map Each Column Automatically |
-| Update Time Report | Record | Create | TVSeries | TVSeries | Mapping Column Mode: Map Each Column Automatically, Columns to match on "Title" |
+| Search TVSeries | Record | Search | TVSeries | TVSeries | Filter By Formula: Click the AIIcon (The sparkles) |
+| Delete TVSeries | Record | Delete | TVSeries | TVSeries | Record ID:  Click the AIIcon (The sparkles) |
+| Create TVSeries | Record | Create | TVSeries | TVSeries | Mapping Column Mode: Map Each Column Automatically |
+| Update TVSeries | Record | Create | TVSeries | TVSeries | Mapping Column Mode: Map Each Column Automatically, Columns to match on "Title" |
 
 
 
